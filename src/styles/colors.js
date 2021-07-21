@@ -30,6 +30,6 @@ export const darkColors = {
     edit: "#1bdc14",
   };
   
-  // const colors = { darkColors, lightColors };
+  const colors = { darkColors, lightColors };
   
-  // export default colors;
+  export default colors;
