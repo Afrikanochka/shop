@@ -2,8 +2,12 @@ import React from 'react';
 import colors from "../../../styles/colors";
 import { ProductListItemStyled } from './ProductListItemStyled';
 
-const ProductListItem = ({product}) => {
-  const {name, image, description, isSale, price} = product;
+const ProductListItem = ({product, addToCart}) => {
+  const {name, image, description, isSale, price, id} = product;
+  const addProduct = () => {
+    addToCart({name, price, id});
+  };
+
     return (
         <ProductListItemStyled colors={colors}>
         <div className="productListItemWrapper">
@@ -22,7 +26,7 @@ const ProductListItem = ({product}) => {
           <span>{price}</span>
         </p>
         <div className="productListItemButtonsGroup">
-          <button type="button" className="addToCartButton">
+          <button type="button" className="addToCartButton" onClick={addProduct} >
             Add to Cart
           </button>
           <button type="button" className="detailsButton">
