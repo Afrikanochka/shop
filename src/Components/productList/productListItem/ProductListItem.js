@@ -9,33 +9,29 @@ const ProductListItem = ({product, addToCart}) => {
   };
 
     return (
-        <ProductListItemStyled colors={colors}>
-        <div className="productListItemWrapper">
+      <ProductListItemStyled colors={colors}>
+      <div className="productListItemWrapper">
         <h3 className="productListItemTitle">{name}</h3>
-        <img src={image} alt={name} className="productListItemImg" />
+        <img className="productListItemImg" src={image} alt={name} />
         <p className="productListItemSale">
-          <span className="productListItemName">Sale:</span>{" "}
-          {isSale ? "Действует акционная цена" : "В акции не участвует"}
+          Sale: {isSale ? "Действует акционная цена" : "В акции не участвует"}
         </p>
-        <p className="productListItemDescription">
-          <span className="productListItemName">Description: </span>
-          {description}
-        </p>
+        <p className="productListItemDescription">{description}</p>
         <p className="productListItemPrice">
-          <span className="productListItemName">Price:</span>{" "}
-          <span>{price}</span>
+          Цена: <span>{price}</span>
         </p>
-        <div className="productListItemButtonsGroup">
-          <button type="button" className="addToCartButton" onClick={addProduct} >
-            Add to Cart
+        <div className="productListItemButtonGroup">
+          <button type="button" className="addToCartBtn" onClick={addProduct}>
+            Add ro Cart
           </button>
-          <button type="button" className="detailsButton">
+          <button type="button" className="detailsBtn">
             Details
           </button>
         </div>
       </div>
-        </ProductListItemStyled>
-    );
-    };
+    </ProductListItemStyled>
+  );
+};
+
 
     export default ProductListItem;

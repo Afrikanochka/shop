@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
+import {createNewAdv} from "../../services/api.js";
 
 const categories = ["phones", "laptops"];
 const initialState = {
@@ -23,10 +24,10 @@ class AdvForm extends Component {
     this.setState({ [name]: value });
   };
 
-  onHandleSubmit = (e) => {
+  onHandleSubmit = async (e) => {
     e.preventDefault();
-    console.log(this.state);
-    this.props.addNewAdv({ ...this.state, id: uuidv4() });
+    const response = await createNewAdv(this.state);
+    this.props.addNewAdv({ ...this.state, id: response.data.name });
     this.setState({...initialState});
   };
 

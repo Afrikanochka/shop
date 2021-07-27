@@ -3,15 +3,15 @@ import styled from "styled-components";
 export const ProductListItemStyled = styled.li`
   width: 100%;
   padding: 10px;
-  height: 650px;
+  height: auto;
   .productListItemWrapper {
-    width: 100%;
-    height: 100%;
-    border: 1px solid ${(props) => props.colors.darkColors.secondary};
-    border-radius: 14px;
-    padding: 20px;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: 3px solid ${(props) => props.colors.darkColors.secondary};
+    border-radius: 14px;
+    padding: 20px;
   }
   .productListItemTitle {
     text-align: center;
@@ -25,29 +25,34 @@ export const ProductListItemStyled = styled.li`
     margin-top: 20px;
   }
   .productListItemDescription {
-    flex-grow: 1;
     margin-top: 20px;
   }
-  .productListItemName {
-    font-weight: 700;
+  .productListColor {
+    display: flex;
+  }
+  .productListItemColor {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
   }
   .productListItemPrice {
     margin-top: 20px;
+    flex-grow: 1;
   }
-  .productListItemButtonsGroup {
+  .productListItemButtonGroup {
     display: flex;
     align-items: center;
-    width: 100%;
     margin-top: 20px;
   }
-  .productListItemButtonsGroup button {
+  .productListItemButtonGroup button {
     background-color: ${(props) => props.colors.darkColors.main};
-    width: 50%;
+    width: 100%;
     border: none;
     height: 30px;
     /* padding: 10px; */
     color: ${(props) => props.colors.darkColors.buttonText};
     text-transform: uppercase;
+    cursor: pointer;
     &:first-child {
       margin-right: 2px;
     }
@@ -55,11 +60,11 @@ export const ProductListItemStyled = styled.li`
       background-color: ${(props) => props.colors.darkColors.active};
     }
   }
-  .addToCartButton {
-    border-radius: 14px 0 0 14px;
+  .addToCartBtn {
     align-self: center;
+    border-radius: 14px 0 0 14px;
   }
-  .detailsButton {
+  .detailsBtn {
     border-radius: 0 14px 14px 0;
   }
   @media screen and (min-width: 768px) {
