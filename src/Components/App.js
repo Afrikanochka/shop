@@ -3,12 +3,12 @@ import Header from "./header/Header";
 import Main from "./main/Main";
 
 const App = () => {
-    return ( 
+  return (
     <>
-    <Header />
-    <Main />
+      <Header />
+      <Main />
     </>
-    );
-}
+  );
+};
 
 export default App;

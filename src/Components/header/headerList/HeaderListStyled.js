@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderListStyled = styled.ul`
-   list-style: none;
+  list-style: none;
   display: flex;
   flex-direction: column;
   width: 90vw;
@@ -14,16 +14,19 @@ export const HeaderListStyled = styled.ul`
     flex-direction: row;
     width: 100%;
     background-color: inherit;
+
     margin: 0;
     padding-top: 0;
     align-items: center;
     justify-content: space-between;
   }
+
   .headerListItem {
     margin-top: 10px;
     @media (min-width: 768px) {
       margin-top: 0;
     }
+
     &:not(:last-child) {
       margin-right: 10px;
       @media (min-width: 768px) {
@@ -31,10 +34,14 @@ export const HeaderListStyled = styled.ul`
       }
     }
   }
+
   .headerListLink {
     color: ${(props) => props.colors.darkColors.main};
     cursor: pointer;
     text-transform: uppercase;
     text-decoration: none;
+  }
+  .activeHeaderListLink {
+    color: ${(props) => props.colors.darkColors.active};
   }
 `;

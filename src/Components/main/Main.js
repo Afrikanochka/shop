@@ -1,14 +1,15 @@
-import React, {Component} from "react";
-import CartList from "../cartList/CartList";
+import React, { Component } from "react";
 import ProductList from "../productList/ProductList";
 import Section from "../section/Section";
 import { MainStyled } from "./MainStyled";
-import AdminForm from "../admin/AdminForm";
-import { getAllAdvByCategory } from "../../services/api.js";
-
+import CartList from "../cartList/СartList";
+import AdvForm from "../admin/AdvForm";
+import { detAllAdvByCategory } from "../../services/Api";
+import { Route, Switch } from "react-router-dom";
+import { mainRoutes } from "../../routes/mainRoutes";
 
 const getDataByCategory = async (category) => {
-  const response = await getAllAdvByCategory(category);
+  const response = await detAllAdvByCategory(category);
   return response.data
     ? Object.keys(response.data).map((key) => ({
         id: key,
@@ -16,7 +17,6 @@ const getDataByCategory = async (category) => {
       }))
     : [];
 };
-
 class Main extends Component {
   state = {
     cart: [],
@@ -57,28 +57,16 @@ class Main extends Component {
   render() {
     return (
       <MainStyled>
-        <Section title="Администрирование">
-          <AdminForm addNewAdv={this.addNewAdv} />
-        </Section>
-        <Section title={"Корзина"}>
-          <CartList
-            cart={this.state.cart}
-            removeFromCart={this.removeFromCart}
-            removeAllFromCart={this.removeAllFromCart}
-          />
-        </Section>
-        <Section title={"Мобильные телефоны"}>
-          <ProductList
-            products={this.state.products.phones}
-            addToCart={this.addToCart}
-          />
-        </Section>
-        <Section title={"Ноутбуки"}>
-          <ProductList
-            products={this.state.products.laptops}
-            addToCart={this.addToCart}
-          />
-        </Section>
+        <Switch>
+          {mainRoutes.map((route) => (
+            <Route
+              path={route.path}
+              exact={route.exact}
+              component={route.component}
+              key={route.path}
+            />
+          ))}
+        </Switch>
       </MainStyled>
     );
   }

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-// import { v4 as uuidv4 } from "uuid";
-import {createNewAdv} from "../../services/api.js";
+import { createNewAdv } from "../../services/Api";
+import { AdvFormStyled } from "./AdvFormStyled";
 
 const categories = ["phones", "laptops"];
 const initialState = {
   name: "",
   image: "",
   description: "",
-  price: 0,
+  price: "",
   isSale: false,
   category: categories[0],
 };
@@ -28,13 +28,13 @@ class AdvForm extends Component {
     e.preventDefault();
     const response = await createNewAdv(this.state);
     this.props.addNewAdv({ ...this.state, id: response.data.name });
-    this.setState({...initialState});
+    this.setState({ ...initialState });
   };
 
   render() {
     const { name, description, price, isSale, image, category } = this.state;
     return (
-      <form onSubmit={this.onHandleSubmit}>
+      <AdvFormStyled onSubmit={this.onHandleSubmit} className="formAdv">
         <label>
           name:
           <input
@@ -95,7 +95,7 @@ class AdvForm extends Component {
           </select>
         </label>
         <button type="submit">Add Adv</button>
-      </form>
+      </AdvFormStyled>
     );
   }
 }

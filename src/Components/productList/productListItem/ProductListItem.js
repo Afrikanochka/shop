@@ -1,15 +1,14 @@
-import React from 'react';
+import React from "react";
 import colors from "../../../styles/colors";
-import { ProductListItemStyled } from './ProductListItemStyled';
+import { ProductListItemStyled } from "./ProductListItemStyled";
 
-const ProductListItem = ({product, addToCart}) => {
-  const {name, image, description, isSale, price, id} = product;
+const ProductListItem = ({ product, addToCart }) => {
+  const { id, name, image, description, isSale, price } = product;
   const addProduct = () => {
-    addToCart({name, price, id});
+    addToCart({ name, price, id });
   };
-
-    return (
-      <ProductListItemStyled colors={colors}>
+  return (
+    <ProductListItemStyled colors={colors}>
       <div className="productListItemWrapper">
         <h3 className="productListItemTitle">{name}</h3>
         <img className="productListItemImg" src={image} alt={name} />
@@ -33,5 +32,4 @@ const ProductListItem = ({product, addToCart}) => {
   );
 };
 
-
-    export default ProductListItem;
+export default ProductListItem;

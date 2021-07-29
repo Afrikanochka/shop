@@ -1,21 +1,26 @@
 import React from "react";
-// import data from "../../../data/index";
-import { HeaderListStyled } from "./HeaderListStyled";
+import { NavLink } from "react-router-dom";
+import { mainRoutes } from "../../../routes/mainRoutes";
 import colors from "../../../styles/colors";
-import mainRoutes from "../../../routes/mainRoutes";
+import { HeaderListStyled } from "./HeaderListStyled";
 
-const HeaderList = ({language = "en"}) => {
-    return (
-        <HeaderListStyled colors={colors}>
-            {mainRoutes.map((item) => (
-                  <li key={item.path} className="headerListItem">
-                  <a href="{item.path}" className="headerListLink">
-                    {item.name[language]}
-                  </a>
-                </li>
-            ))}
-        </HeaderListStyled>
-    );
-}
+const HeaderList = ({ language = "en" }) => {
+  return (
+    <HeaderListStyled colors={colors}>
+      {mainRoutes.map((item) => (
+        <li className="headerListItem" key={item.path}>
+          <NavLink
+            to={item.path}
+            className="headerListLink"
+            activeClassName="activeHeaderListLink"
+            exact={item.exact}
+          >
+            {item.name[language]}
+          </NavLink>
+        </li>
+      ))}
+    </HeaderListStyled>
+  );
+};
 
 export default HeaderList;
