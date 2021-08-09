@@ -5,6 +5,7 @@ import {
   getAllProducts,
   getLaptops,
   getPhones,
+  productsByCategory,
   resetError,
   setError,
   setLoader,
@@ -23,6 +24,11 @@ const productsItemsReducer = createReducer(
         (item) => item.id !== payload.id
       ),
     }),
+    [productsByCategory]: (state, { payload }) => {
+      if (payload.length) {
+        return { ...state, [payload[0].category]: payload };
+      }
+    },
     [getLaptops]: (state, { payload }) => ({
       ...state,
       laptops: payload,
@@ -47,13 +53,11 @@ const productsErrorReducer = createReducer("", {
 });
 
 
-
 const productsReducer = combineReducers({
   items: productsItemsReducer,
   isLoading: productsLoaderReducer,
   error: productsErrorReducer,
 });
-
 export default productsReducer;
 
 // import { ADD_PRODUCT, DELETE_PRODUCT, GET_ALL_PRODUCTS, GET_LAPTOPS, GET_PHONES } from "./productsAction";

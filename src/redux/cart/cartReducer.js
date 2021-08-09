@@ -24,15 +24,6 @@ const cartErrorReducer = createReducer("", {
   [setError]: (_, { payload }) => payload,
   [resetError]: () => "",
 });
-
-const cartReducer = combineReducers({
-  items: cartItemsReducer,
-  isLoading: cartLoaderReducer,
-  error: cartErrorReducer,
-});
-
-export default cartReducer;
-
 //==================redux=============//
 // import {
 //   ADD_TO_CART,
@@ -80,3 +71,11 @@ export default cartReducer;
 //       return state;
 //   }
 // };
+
+const cartReducer = combineReducers({
+  items: cartItemsReducer,
+  isLoading: cartLoaderReducer,
+  error: cartErrorReducer,
+});
+
+export default cartReducer;

@@ -8,6 +8,7 @@ export const getAllProducts = createAction("products/getAllProducts");
 export const setError = createAction("products/setError");
 export const resetError = createAction("products/resetError");
 export const setLoader = createAction("products/setLoader");
+export const productsByCategory = createAction("products/productsByCategory");
 
 
 // const ADD_PRODUCT = "addProduct";
