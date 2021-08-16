@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_KEY = "AIzaSyBAGVyiPu9O3ptXjLgGTzU9hZdpJJ5tJME";
+const API_KEY = "AIzaSyDVLOCqtFFYNPnZf9wQcOdX_9Z01z-gUic";
 
 const registrUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
 
